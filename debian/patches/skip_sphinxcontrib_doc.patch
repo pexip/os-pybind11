@@ -1,0 +1,22 @@
+Index: pybind11/docs/conf.py
+===================================================================
+--- pybind11.orig/docs/conf.py	2022-07-26 21:13:31.067042687 +0200
++++ pybind11/docs/conf.py	2022-07-26 21:14:06.927315603 +0200
+@@ -36,8 +36,6 @@
+ extensions = [
+     "breathe",
+     "sphinx_copybutton",
+-    "sphinxcontrib.rsvgconverter",
+-    "sphinxcontrib.moderncmakedomain",
+ ]
+ 
+ breathe_projects = {"pybind11": ".build/doxygenxml/"}
+@@ -126,7 +124,7 @@
+ # The theme to use for HTML and HTML Help pages.  See the documentation for
+ # a list of builtin themes.
+ 
+-html_theme = "furo"
++#html_theme = "furo"
+ 
+ # Theme options are theme-specific and customize the look and feel of a theme
+ # further.  For a list of options available for each theme, see the

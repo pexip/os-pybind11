@@ -1,0 +1,15 @@
+Index: pybind11/docs/reference.rst
+===================================================================
+--- pybind11.orig/docs/reference.rst	2021-07-23 13:20:33.240742620 +0200
++++ pybind11/docs/reference.rst	2021-07-23 13:20:33.236742602 +0200
+@@ -49,8 +49,8 @@
+ .. doxygenclass:: module_
+     :members:
+ 
+-.. doxygengroup:: pytypes
+-    :members:
++.. .. doxygengroup:: pytypes
++..     :members:
+ 
+ Convenience functions converting to Python types
+ ================================================
