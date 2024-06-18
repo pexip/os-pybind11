@@ -17,7 +17,7 @@ CONFIGURE_ARGS+=-DPYBIND11_TEST:BOOL=OFF
 endif
 
 %:
-	dh $@ --with python3,sphinxdoc --buildsystem=cmake
+	dh $@ --with python3 --buildsystem=cmake
 
 execute_after_dh_clean:
 	rm -rf tests/.pytest_cache
@@ -26,7 +26,7 @@ override_dh_auto_clean:
 	dh_auto_clean
 	dh_auto_clean --buildsystem=pybuild
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
-	$(MAKE) -C docs clean
+#	$(MAKE) -C docs clean
 endif
 
 override_dh_auto_configure:
@@ -39,7 +39,7 @@ override_dh_auto_build:
 	dh_auto_build
 	dh_auto_build --buildsystem=pybuild
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
-	$(MAKE) -C docs html
+#	$(MAKE) -C docs html
 endif
 
 override_dh_auto_install:
@@ -49,19 +49,19 @@ override_dh_auto_install:
 override_dh_installchangelogs:
 	dh_installchangelogs docs/changelog.rst
 
-override_dh_installdocs:
-	dh_installdocs
-	cp debian/images/* debian/pybind11-doc/usr/share/doc/pybind11-doc/html/_images
-	sed "s|src=\"https://github.com/pybind/pybind11/raw/master/docs/pybind11-logo.png|src=\"_images/pybind11-logo.png|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://ci.appveyor.com/api/projects/status/riaj54pn4h08xy40?svg=true|src=\"_images/build_passing_riaj54pn4h08xy40.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://github.com/pybind/pybind11/workflows/CI/badge.svg|src=\"_images/badge.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://img.shields.io/gitter/room/gitterHQ/gitter.svg|src=\"_images/gitter.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://readthedocs.org/projects/pybind11/badge?version=latest|src=\"_images/docspassing.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://img.shields.io/badge/docs-stable-blue|src=\"_images/docs-stable.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://img.shields.io/conda/vn/conda-forge/pybind11.svg|src=\"_images/pybind11_conda.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://img.shields.io/pypi/v/pybind11.svg|src=\"_images/pybind11_pypi.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://img.shields.io/pypi/pyversions/pybind11.svg|src=\"_images/pybind11_pyversions.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
-	sed "s|src=\"https://repology.org/badge/latest-versions/python:pybind11.svg|src=\"_images/pybind11_lastest.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#override_dh_installdocs:
+#	dh_installdocs
+#	cp debian/images/* debian/pybind11-doc/usr/share/doc/pybind11-doc/html/_images
+#	sed "s|src=\"https://github.com/pybind/pybind11/raw/master/docs/pybind11-logo.png|src=\"_images/pybind11-logo.png|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://ci.appveyor.com/api/projects/status/riaj54pn4h08xy40?svg=true|src=\"_images/build_passing_riaj54pn4h08xy40.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://github.com/pybind/pybind11/workflows/CI/badge.svg|src=\"_images/badge.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://img.shields.io/gitter/room/gitterHQ/gitter.svg|src=\"_images/gitter.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://readthedocs.org/projects/pybind11/badge?version=latest|src=\"_images/docspassing.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://img.shields.io/badge/docs-stable-blue|src=\"_images/docs-stable.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://img.shields.io/conda/vn/conda-forge/pybind11.svg|src=\"_images/pybind11_conda.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://img.shields.io/pypi/v/pybind11.svg|src=\"_images/pybind11_pypi.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://img.shields.io/pypi/pyversions/pybind11.svg|src=\"_images/pybind11_pyversions.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
+#	sed "s|src=\"https://repology.org/badge/latest-versions/python:pybind11.svg|src=\"_images/pybind11_lastest.svg|g" -i debian/pybind11-doc/usr/share/doc/pybind11-doc/html/*.html
 
 get-orig-source:
 	uscan --download-current-version --force-download --no-symlink

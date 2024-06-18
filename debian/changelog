@@ -1,6 +1,7 @@
 pybind11 (2.12.0-1+pexip24u1) pexip; urgency=medium
 
   * New upstream release
+  * Don't build docs
 
  -- Huw Jones <huw@pexip.com>  Tue, 18 Jun 2024 11:03:02 +0100
 

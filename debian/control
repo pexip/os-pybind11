@@ -18,11 +18,11 @@ Build-Depends: debhelper-compat (= 13),
                python3-pytest <!nocheck>,
                python3-scipy <!nocheck>,
                python3-setuptools,
-               furo <!nodoc>,
-               python3-sphinx <!nodoc>,
-               python3-sphinx-copybutton <!nodoc>,
-               python3-sphinx-rtd-theme <!nodoc>,
-               python3-sphinxcontrib.moderncmakedomain <!nodoc>,
+#               furo <!nodoc>,
+#               python3-sphinx <!nodoc>,
+#               python3-sphinx-copybutton <!nodoc>,
+#               python3-sphinx-rtd-theme <!nodoc>,
+#               python3-sphinxcontrib.moderncmakedomain <!nodoc>,
                python3-wheel,
                sphinx-common
 Standards-Version: 4.7.0
@@ -48,23 +48,23 @@ Description: seamless operability between C++11 and Python
  .
  This package provides the header-only library.
 
-Package: pybind11-doc
-Architecture: all
-Multi-Arch: foreign
-Section: doc
-Depends: ${misc:Depends},
-         ${sphinxdoc:Depends}
-Built-Using: ${sphinxdoc:Built-Using}
-Description: documentation for pybind11
- pybind11 is a lightweight header library that exposes C++ types in
- Python and vice versa, mainly to create Python bindings of existing C++
- code. Its goals and syntax are similar to the excellent Boost.Python
- library by David Abrahams: to minimize boilerplate code in traditional
- extension modules by inferring type information using compile-time
- introspection.
- .
- This package provides the documentation.
-Build-Profiles: <!nodoc>
+#Package: pybind11-doc
+#Architecture: all
+#Multi-Arch: foreign
+#Section: doc
+#Depends: ${misc:Depends},
+#         ${sphinxdoc:Depends}
+#Built-Using: ${sphinxdoc:Built-Using}
+#Description: documentation for pybind11
+# pybind11 is a lightweight header library that exposes C++ types in
+# Python and vice versa, mainly to create Python bindings of existing C++
+# code. Its goals and syntax are similar to the excellent Boost.Python
+# library by David Abrahams: to minimize boilerplate code in traditional
+# extension modules by inferring type information using compile-time
+# introspection.
+# .
+# This package provides the documentation.
+#Build-Profiles: <!nodoc>
 
 Package: python3-pybind11
 Architecture: all
